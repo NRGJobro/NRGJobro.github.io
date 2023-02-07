@@ -16,6 +16,10 @@
 	
 	<script>
 		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
+		if (typeof window.devicePixelRatio !='undefined' && window.devicePixelRatio > 2) {
+			var meta = document.getElementById ("viewport");
+			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+		}
 	</script>
 	
 	<style>
@@ -55,8 +59,7 @@
 	
 	<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this page.</noscript>
 	
-	<div id="openfl-content"></div>
-	
+<div id="openfl-content" style="cursor: default;"><canvas width="1920" height="1080" style="transform: translateZ(0px); width: 1920px; height: 1080px; margin-left: 0px; margin-top: 131px;"></canvas></div>	
 	<script type="text/javascript">
 		lime.embed ("Run3", "openfl-content", 1920, 1080, { parameters: {} });
 	</script>
